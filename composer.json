@@ -1,0 +1,16 @@
+{
+    "name": "caglarcetinceviz/workopia-php",
+    "description": "Job listing application",
+    "authors": [
+        {
+            "name": "Caglar Cetinceviz",
+            "email": "caglarcetinceviz@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
