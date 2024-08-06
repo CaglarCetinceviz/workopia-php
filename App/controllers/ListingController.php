@@ -74,17 +74,17 @@ class ListingController
      */
     public function store()
     {
-        $allowedFields = ['title', 'description', 'salary', 'tags', 'company', 'address', 'city', 'state', 'phone', 'email', 'requirements', 'benefits'];
+        $allowedFields = ['title', 'description', 'salary', 'tags', 'company', 'address', 'city', 'state', 'phone', 'email', 'requirements', 'benefits',];
 
         // to match the keys
         $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
 
-        $newListingData['user_1'] = 1;
+        $newListingData['user_id'] = 1;
 
         // to sanitize
         $newListingData = array_map('sanitize', $newListingData);
 
-        $requiredFields = ['title', 'description', 'email', 'city', 'requirements'];
+        $requiredFields = ['title', 'description', 'salary', 'email', 'city', 'requirements'];
 
         $errors = [];
 
@@ -121,7 +121,7 @@ class ListingController
 
             $values = implode(', ', $values);
 
-            $query = "INSERT INTO listings ({$fields} VALUES ({$values})";
+            $query = "INSERT INTO listings ({$fields}) VALUES ({$values})";
 
             $this->db->query($query, $newListingData);
 
